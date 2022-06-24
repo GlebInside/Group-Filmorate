@@ -32,11 +32,21 @@ public class RecommendationService {
 
         for (var u : allLikes.keySet()) {
             var anotherUserLikes = allLikes.get(u);
+//            anotherUserLikes: [2,3,4]
+            //userLikes: [1,2,3]
             var intersection = new HashSet<>(userLikes);
+//            intersection: [1,2,3]
             intersection.retainAll(anotherUserLikes);
+//            intersection: [2,3]
             var recommendations = new HashSet<>(anotherUserLikes);
+//            recommendations: [2,3,4]
             recommendations.removeAll(userLikes);
-            map.put(intersection.size(), recommendations);
+//            recommendations: [4]
+            var commonLikesCount = intersection.size();
+            if(!map.containsKey(commonLikesCount)) {
+                map.put(commonLikesCount, new HashSet<>());
+            }
+            map.get(commonLikesCount).addAll(recommendations); // проверить как создаются сеты
         }
 
 
@@ -44,6 +54,7 @@ public class RecommendationService {
                 .values()
                 .stream()
                 .flatMap(Collection::stream)
+                .distinct()
                 .map(filmService::findFilmById)
                 .collect(Collectors.toUnmodifiableList());
         return result;

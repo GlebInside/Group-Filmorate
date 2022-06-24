@@ -1,3 +1,4 @@
+delete from genres;
 insert into genres(name) values('COMEDY');
 insert into genres(name) values('DRAMA');
 insert into genres(name) values('CARTOON');

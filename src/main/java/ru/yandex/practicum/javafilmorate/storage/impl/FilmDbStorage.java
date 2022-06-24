@@ -91,7 +91,7 @@ public class FilmDbStorage implements FilmStorage, ReadFilmStorage {
 
     @Override
     public Collection<Film> returnAllFilms() {
-        return jdbcTemplate.query("SELECT * from films", (rs, rowNum) -> makeFilm(rs, rowNum));
+        return jdbcTemplate.query("SELECT * from films", this::makeFilm);
     }
 
     public Optional<Film> findFilmById(int filmId) {
