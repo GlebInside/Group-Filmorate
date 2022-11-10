@@ -1,4 +1,4 @@
-<h1 align="center">Group Filmorate (group project)</h1>
+<h1 align="center">Group-Filmorate (group project)</h1>
 
 <p align="center">
   
@@ -6,7 +6,7 @@
 
 <img src="https://img.shields.io/badge/java-18-orange.svg">
 
-<img src="https://img.shields.io/github/languages/top/glebinside/StepTracker.svg">
+<img src="https://img.shields.io/github/languages/top/glebinside/Group-Filmorate.svg">
 
 </p>
 
